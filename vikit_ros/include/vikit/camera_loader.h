@@ -32,6 +32,7 @@ bool loadFromRosNs(const std::string& ns, vk::AbstractCamera*& cam)
     cam = new vk::PinholeCamera(
         getParam<int>(ns+"/cam_width"),
         getParam<int>(ns+"/cam_height"),
+        getParam<double>(ns+"/scale", 1.0),
         getParam<double>(ns+"/cam_fx"),
         getParam<double>(ns+"/cam_fy"),
         getParam<double>(ns+"/cam_cx"),

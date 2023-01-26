@@ -21,7 +21,7 @@ ATANCamera(double width, double height,
            double fx, double fy,
            double cx, double cy,
            double s) :
-           AbstractCamera(width, height),
+           AbstractCamera(width, height, 1.0),
            fx_(width*fx), fy_(height*fy),
            fx_inv_(1.0/fx_), fy_inv_(1.0/fy_),
            cx_(cx*width - 0.5), cy_(cy*height - 0.5),

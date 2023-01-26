@@ -76,6 +76,10 @@ public:
     return error_multiplier_;
   }
 
+  virtual double fx() const { return 0.0; };
+  virtual double fy() const { return 0.0; };
+  virtual double cx() const { return 0.0; };
+  virtual double cy() const { return 0.0; };
 };
 
 } // end namespace vk

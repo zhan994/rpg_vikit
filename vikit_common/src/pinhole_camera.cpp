@@ -17,17 +17,18 @@
 namespace vk {
 
 PinholeCamera::
-PinholeCamera(double width, double height,
+PinholeCamera(double width, double height, double scale,
               double fx, double fy,
               double cx, double cy,
               double d0, double d1, double d2, double d3, double d4) :
-              AbstractCamera(width, height),
-              fx_(fx), fy_(fy), cx_(cx), cy_(cy),
+              AbstractCamera(width * scale , height * scale, scale),
+              fx_(fx * scale), fy_(fy * scale), cx_(cx * scale), cy_(cy * scale),
               distortion_(fabs(d0) > 0.0000001),
               undist_map1_(height_, width_, CV_16SC2),
               undist_map2_(height_, width_, CV_16SC2),
               use_optimization_(false)
 {
+  cout << "scale: " << scale << endl;
   d_[0] = d0; d_[1] = d1; d_[2] = d2; d_[3] = d3; d_[4] = d4;
   cvK_ = (cv::Mat_<float>(3, 3) << fx_, 0.0, cx_, 0.0, fy_, cy_, 0.0, 0.0, 1.0);
   cvD_ = (cv::Mat_<float>(1, 5) << d_[0], d_[1], d_[2], d_[3], d_[4]);

@@ -35,7 +35,7 @@ private:
 public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
-  PinholeCamera(double width, double height,
+  PinholeCamera(double width, double height, double scale,
                 double fx, double fy, double cx, double cy,
                 double d0=0.0, double d1=0.0, double d2=0.0, double d3=0.0, double d4=0.0);
 
@@ -73,10 +73,10 @@ public:
 
   inline const Matrix3d& K() const { return K_; };
   inline const Matrix3d& K_inv() const { return K_inv_; };
-  inline double fx() const { return fx_; };
-  inline double fy() const { return fy_; };
-  inline double cx() const { return cx_; };
-  inline double cy() const { return cy_; };
+  virtual double fx() const { return fx_; };
+  virtual double fy() const { return fy_; };
+  virtual double cx() const { return cx_; };
+  virtual double cy() const { return cy_; };
   inline double d0() const { return d_[0]; };
   inline double d1() const { return d_[1]; };
   inline double d2() const { return d_[2]; };

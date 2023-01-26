@@ -84,6 +84,11 @@ public:
   {
     return 4*fx_*fy_;
   }
+
+  virtual double fx() const { return fx_; };
+  virtual double fy() const { return fy_; };
+  virtual double cx() const { return cx_; };
+  virtual double cy() const { return cy_; };
 };
 
 } // end namespace vk

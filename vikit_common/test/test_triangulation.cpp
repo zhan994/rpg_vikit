@@ -21,7 +21,7 @@ using namespace Eigen;
 
 int main(int argc, char **argv)
 {
-  vk::PinholeCamera cam(752, 480, 414.5, 414.2, 348.8, 240.0);
+  vk::PinholeCamera cam(752, 480, 1.0, 414.5, 414.2, 348.8, 240.0);
   Matrix4d T_ref_cur(Matrix4d::Identity());
   T_ref_cur(0,3) = 0.5;
   Vector2d u_cur(200, 300);

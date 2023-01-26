@@ -22,11 +22,12 @@ protected:
 
   int width_;   // TODO cannot be const because of omni-camera model
   int height_;
+  double scale_;
 
 public:
 
   AbstractCamera() {}; // need this constructor for omni camera
-  AbstractCamera(int width, int height) : width_(width), height_(height) {};
+  AbstractCamera(int width, int height, double scale) : width_(width), height_(height), scale_(scale){};
 
   virtual ~AbstractCamera() {};
 
@@ -51,9 +52,16 @@ public:
   virtual double
   errorMultiplier() const = 0;
 
+  virtual double fx() const = 0;
+  virtual double fy() const = 0;
+  virtual double cx() const = 0;
+  virtual double cy() const = 0;
+
   inline int width() const { return width_; }
 
   inline int height() const { return height_; }
+
+  inline double scale() const { return scale_; }
 
   inline bool isInFrame(const Vector2i & obs, int boundary=0) const
   {
