@@ -13,6 +13,7 @@
 #include <vikit/pinhole_camera.h>
 #include <vikit/atan_camera.h>
 #include <vikit/omni_camera.h>
+#include <vikit/equidistant_camera.h>
 #include <vikit/params_helper.h>
 
 namespace vk {
@@ -41,6 +42,21 @@ bool loadFromRosNs(const std::string& ns, vk::AbstractCamera*& cam)
         getParam<double>(ns+"/cam_d1", 0.0),
         getParam<double>(ns+"/cam_d2", 0.0),
         getParam<double>(ns+"/cam_d3", 0.0));
+  }
+  else if(cam_model == "EquidistantCamera")
+  {
+    cam = new vk::EquidistantCamera(
+        getParam<int>(ns+"/cam_width"),
+        getParam<int>(ns+"/cam_height"),
+        getParam<double>(ns+"/scale", 1.0),
+        getParam<double>(ns+"/cam_fx"),
+        getParam<double>(ns+"/cam_fy"),
+        getParam<double>(ns+"/cam_cx"),
+        getParam<double>(ns+"/cam_cy"),
+        getParam<double>(ns+"/k1", 0.0),
+        getParam<double>(ns+"/k2", 0.0),
+        getParam<double>(ns+"/k3", 0.0),
+        getParam<double>(ns+"/k4", 0.0));
   }
   else if(cam_model == "ATAN")
   {
