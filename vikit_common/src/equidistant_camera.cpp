@@ -2,7 +2,7 @@
  * equidistant_camera.cpp
  *
  *  Created on: January 26, 2023
- *      Author: xuankuzcr
+ *      Author: Chunran Zheng
  */
 
 #include <stdio.h>

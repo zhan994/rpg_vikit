@@ -2,7 +2,7 @@
  * polynomial_camera.h
  *
  *  Created on: January 26, 2023
- *      Author: xuankuzcr
+ *      Author: Chunran Zheng
  */
 
 #ifndef POLYNOMIAL_CAMERA_H_
