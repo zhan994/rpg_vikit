@@ -17,7 +17,7 @@ ENDIF()
 FIND_PACKAGE(catkin REQUIRED COMPONENTS roscpp vikit_common visualization_msgs tf cmake_modules)
 
 # Add plain cmake packages 
-FIND_PACKAGE(OpenCV REQUIRED)
+FIND_PACKAGE(OpenCV 4 REQUIRED)
 find_package(Eigen3 REQUIRED)
 FIND_PACKAGE(Sophus REQUIRED)
 
